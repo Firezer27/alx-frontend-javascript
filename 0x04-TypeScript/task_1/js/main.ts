@@ -64,11 +64,11 @@ interface StudentInterface {
   workOnHomework(): string;
   displayName(): string;
 }
-class StudentInterface {
+class StudentClass {
   firstName: string;
   lastName: string;
 
-  constructor({firstName,lastName}:StudentConstructor){
+  constructor({ firstName, lastName }: StudentConstructor) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
