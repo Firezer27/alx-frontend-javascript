@@ -122,6 +122,7 @@ function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
 
+// Function executeWork
 function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
@@ -130,6 +131,7 @@ function executeWork(employee: Director | Teacher): string {
   }
 }
 
-
 console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
+
+
