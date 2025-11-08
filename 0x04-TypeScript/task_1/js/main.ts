@@ -44,12 +44,15 @@ console.log(director1);
 
 // Function interface
 interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+  (teacher: { firstName: string; lastName: string }): string;
 }
 
-// Function implementation
-function printTeacher(firstName: string, lastName: string): string {
+// Function implementation using destructuring
+const printTeacher: printTeacherFunction = ({
+  firstName,
+  lastName,
+}): string => {
   return `${firstName}. ${lastName}`;
-}
+};
 
 console.log(printTeacher("John", "Doe"));
