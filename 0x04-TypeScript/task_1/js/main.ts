@@ -42,17 +42,52 @@ console.log(director1);
 // numberOfReports: 17
 
 
-// Function interface
+
 interface printTeacherFunction {
-  (teacher: { firstName: string; lastName: string }): string;
+  (firstName: string, lastName: string): string;
 }
 
-// Function implementation using destructuring
-const printTeacher: printTeacherFunction = ({
-  firstName,
-  lastName,
-}): string => {
+function printTeacher(firstName: string, lastName: string): string {
   return `${firstName}. ${lastName}`;
-};
+}
 
 console.log(printTeacher("John", "Doe"));
+
+
+// Interface describing the constructor arguments
+interface StudentConstructor {
+  firstName: string;
+  lastName: string;
+}
+
+// Interface describing the class
+interface StudentInterface {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+// Class implementation
+class StudentClass implements StudentInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor({ firstName, lastName }: StudentConstructor) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+const student = new StudentClass({ firstName: "Alice", lastName: "Smith" });
+
+console.log(student.displayName());
+console.log(student.workOnHomework());
